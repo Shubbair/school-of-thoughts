@@ -96,4 +96,5 @@ Then open http://localhost:5173 in your browser.
 ## Design
 <img src="assets/workflow.gif" width="65%"/>	
 
-
+## License
+MIT
