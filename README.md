@@ -92,3 +92,8 @@ Then open http://localhost:5173 in your browser.
 - **Frontend:** React + Vite, react-markdown for rendering
 - **Storage:** JSON files in `data/conversations/`
 - **Package Management:** uv for Python, npm for JavaScript
+
+## App Architecture
+<img src="assets/workflow.gif" width="65%"/>	
+
+
