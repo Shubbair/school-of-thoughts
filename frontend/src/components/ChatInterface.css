@@ -1,0 +1,20 @@
+.chat-interface { flex: 1; display: flex; flex-direction: column; height: 100vh; background: var(--paper); }
+.messages-container { flex: 1; overflow-y: auto; width: min(1180px, 100%); margin: 0 auto; padding: 46px clamp(20px, 5vw, 72px) 70px; direction: ltr; }
+.empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: var(--muted); text-align: center; }
+.empty-state h2 { margin: 0 0 8px; color: var(--ink); font-family: var(--serif); font-size: 34px; font-weight: 500; }
+.empty-state p { margin: 0; font-size: 16px; }
+.message-group { margin-bottom: 44px; }
+.user-message, .assistant-message { margin-bottom: 16px; }
+.message-label { margin-bottom: 8px; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+.user-message .message-content { max-width: 80%; padding: 16px; border: 1px solid var(--line); border-radius: 2px; background: var(--table-bg); color: var(--ink); line-height: 1.6; white-space: pre-wrap; }
+.loading-indicator, .stage-loading { display: flex; align-items: center; gap: 12px; padding: 16px 0; color: var(--muted); font-size: 14px; font-style: italic; }
+.spinner { width: 20px; height: 20px; border: 2px solid var(--line); border-top-color: var(--accent); border-radius: 50%; animation: spin 1.4s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.input-form { display: flex; align-items: flex-end; gap: 12px; width: 100%; padding: 18px max(20px, calc((100% - 1040px) / 2)); border-top: 1px solid var(--line); background: var(--sidebar); }
+.message-input { flex: 1; min-height: 80px; max-height: 300px; padding: 14px; border: 1px solid var(--line); border-radius: 2px; outline: none; resize: vertical; background: var(--control); color: var(--ink); direction: ltr; text-align: left; font-family: var(--serif); font-size: 16px; line-height: 1.7; }
+.message-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(138, 107, 76, 0.1); }
+.message-input:disabled { opacity: 0.5; cursor: not-allowed; }
+.send-button { align-self: flex-end; padding: 14px 28px; border: 1px solid var(--ink); border-radius: 2px; background: var(--ink); color: var(--paper); cursor: pointer; font-size: 14px; font-weight: 700; white-space: nowrap; }
+.send-button:hover:not(:disabled) { border-color: var(--accent); background: var(--accent); }
+.send-button:disabled { opacity: 0.45; cursor: not-allowed; }
+@media (max-width: 600px) { .user-message .message-content { max-width: 100%; } .input-form { align-items: stretch; flex-direction: column; } .send-button { align-self: stretch; } }
