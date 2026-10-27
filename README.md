@@ -1,6 +1,6 @@
 # School of Thoughts LLM
 
-![llmcouncil](image.png)
+![llmcouncil](assets/image.png)
 
 Council of philosophical schools , default council includes four positions: materialist/naturalist, idealist, existentialist, and Stoic. Each member answers and stays inside its own framework. Then the facilitator maps what each school sees, where the frameworks conflict, and why an open-ended question may not have one winning answer.
 
