@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { WORLDVIEWS, worldviewFor } from './worldviews';
+import { worldviewFor } from './worldviews';
 import './Stage1.css';
 
 export default function Stage1({ responses, question }) {
@@ -9,19 +9,10 @@ export default function Stage1({ responses, question }) {
     return null;
   }
 
-  const responseByName = Object.fromEntries(
-    responses.map((response) => [response.model, response])
-  );
-  const configuredNames = Object.keys(WORLDVIEWS);
-  const responseNames = responses.map((response) => response.model);
-  const seatNames = [
-    ...configuredNames,
-    ...responseNames.filter((name) => !configuredNames.includes(name)),
-  ];
-  const seats = seatNames.map((name) => ({
-    name,
-    details: worldviewFor(name),
-    response: responseByName[name],
+  const seats = responses.map((response) => ({
+    name: response.model,
+    details: worldviewFor(response.model, response.details),
+    response,
   }));
   const activeSeat = seats.find((seat) => seat.name === activeName);
 

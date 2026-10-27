@@ -2,8 +2,7 @@
 
 ![llmcouncil](assets/image.png)
 
-
-Council of philosophical schools , default council includes four positions: materialist/naturalist, idealist, existentialist, and Stoic. Each member answers and stays inside its own framework. Then the facilitator maps what each school sees, where the frameworks conflict, and why an open-ended question may not have one winning answer.
+Council of philosophical schools , default council includes four positions: materialist/naturalist, idealist and existentialist. Each member answers and stays inside its own framework. Then the facilitator maps what each school sees, where the frameworks conflict, and why an open-ended question may not have one winning answer.
 
 In a bit more detail, here is what happens when you submit a query:
 
@@ -58,10 +57,12 @@ Edit `backend/config.py` to customize the council. Add one `school(...)` entry t
 school(
 	"Confucian",
 	"human flourishing depends on cultivated relationships, ritual, family duties, and social harmony",
+	glyph="◇",
+	color="ochre",
 ),
 ```
 
-The shared prompt automatically tells the new member to answer in English and requires the same organized answer structure.
+The frontend automatically renders every configured school using its `glyph`, `color`, and name. The shared prompt tells each member to answer in English and requires the same organized answer structure.
 
 ## Running the Application
 

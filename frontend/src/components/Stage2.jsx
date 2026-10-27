@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { worldviewFor } from './worldviews';
 import './Stage2.css';
@@ -19,7 +18,7 @@ export default function Stage2({ comparisons }) {
 
       <div className="rebuttal-list">
         {comparisons.map((comparison, index) => {
-          const worldview = worldviewFor(comparison.model);
+          const worldview = worldviewFor(comparison.model, comparison.details);
           return (
             <article className={`rebuttal-card rebuttal-${worldview.color}`} key={index}>
               <div className="rebuttal-source">

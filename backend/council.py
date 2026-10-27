@@ -8,8 +8,13 @@ from .config import COUNCIL_LANGUAGE, COUNCIL_MEMBERS, CHAIRMAN_MODEL
 async def stage1_collect_responses(user_query: str):
     messages = [{"role": "user", "content": user_query}]
     responses = await query_members_parallel(COUNCIL_MEMBERS, messages)
+    members_by_name = {member["name"]: member for member in COUNCIL_MEMBERS}
     return [
-        {"model": name, "response": r["content"]}
+        {
+            "model": name,
+            "details": members_by_name[name]["details"],
+            "response": r["content"],
+        }
         for name, r in responses.items() if r is not None
     ]
 
@@ -33,8 +38,13 @@ Represent the conflict fairly, but do not answer from outside your framework."""
     responses = await query_members_parallel(
         COUNCIL_MEMBERS, [{"role": "user", "content": prompt}]
     )
+    members_by_name = {member["name"]: member for member in COUNCIL_MEMBERS}
     stage2_results = [
-        {"model": name, "comparison": r["content"]}
+        {
+            "model": name,
+            "details": members_by_name[name]["details"],
+            "comparison": r["content"],
+        }
         for name, r in responses.items() if r is not None
     ]
     return stage2_results

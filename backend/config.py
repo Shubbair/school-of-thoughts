@@ -27,7 +27,14 @@ MODEL = os.getenv(
 )
 
 
-def school(name: str, principles: str) -> dict:
+def school(
+    name: str,
+    principles: str,
+    *,
+    glyph: str = "·",
+    color: str = "stone",
+    short_name: str | None = None,
+) -> dict:
     """Create a council seat with a consistent response contract.
 
     Add another school by adding one more ``school(name, principles)`` entry below.
@@ -35,6 +42,11 @@ def school(name: str, principles: str) -> dict:
     return {
         "name": name,
         "model": MODEL,
+        "details": {
+            "glyph": glyph,
+            "color": color,
+            "shortName": short_name or name,
+        },
         "system": (
             f"You represent the philosophical school {name}. Stay strictly inside its principles: "
             f"{principles} "
@@ -51,18 +63,20 @@ COUNCIL_MEMBERS = [
     school(
         "Materialist / Naturalist",
         "physical processes are fundamental, mind is embodied and dependent on the brain, and empirical inquiry is the strongest guide to public knowledge while remaining fallible",
+        glyph="⚛",
+        color="stone",
     ),
     school(
         "Idealist",
         "consciousness or experience is fundamental, and claims about matter are always understood through the structures of mind and experience",
+        glyph="◉",
+        color="indigo",
     ),
     school(
         "Existentialist",
         "meaning is lived and shaped through situated choice and responsibility; do not assume a ready-made universal meaning",
-    ),
-    school(
-        "Stoic",
-        "virtue is the highest good, judgment should distinguish what is and is not within our control, and emotions should be examined rather than denied",
+        glyph="↗",
+        color="ochre",
     ),
 ]
 
