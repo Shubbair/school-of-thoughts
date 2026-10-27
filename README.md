@@ -93,7 +93,7 @@ Then open http://localhost:5173 in your browser.
 - **Storage:** JSON files in `data/conversations/`
 - **Package Management:** uv for Python, npm for JavaScript
 
-## App Architecture
+## Design
 <img src="assets/workflow.gif" width="65%"/>	
 
 
